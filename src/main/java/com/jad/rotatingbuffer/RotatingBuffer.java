@@ -5,12 +5,13 @@ public class RotatingBuffer<E> {
   private final E[] data;
   private final RotatingBufferReader<E> reader;
   private final RotatingBufferWriter<E> writer;
+  private int size;
 
   @SuppressWarnings("unchecked")
   public RotatingBuffer(final int size) {
     this.data = (E[]) new Object[this.getSize()];
 
-    // TODO: Continue the constructor implementation here You have to change the two lines below
+    this.size = size;
     this.reader = null;
     this.writer = null;
   }
