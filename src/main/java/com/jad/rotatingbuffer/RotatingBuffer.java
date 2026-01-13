@@ -6,22 +6,25 @@ public class RotatingBuffer<E> {
   private final RotatingBufferReader<E> reader;
   private final RotatingBufferWriter<E> writer;
   private int size;
+  private int count;
 
   @SuppressWarnings("unchecked")
   public RotatingBuffer(final int size) {
     this.data = (E[]) new Object[this.getSize()];
-
+    this.count = 0;
     this.size = size;
     this.reader = null;
     this.writer = null;
   }
 
   public final int getSize() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return this.size;
   }
 
   public final void reset() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    this.reader.reset();
+    this.writer.reset();
+    this.count = 0;
   }
 
   public final boolean isEmpty() {
