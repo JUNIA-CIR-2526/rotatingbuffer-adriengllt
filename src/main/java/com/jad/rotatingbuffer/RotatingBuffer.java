@@ -11,7 +11,6 @@ public class RotatingBuffer<E> {
   @SuppressWarnings("unchecked")
   public RotatingBuffer(final int size) {
     this.data = (E[]) new Object[this.getSize()];
-    this.count = 0;
     this.size = size;
     this.reader = null;
     this.writer = null;
@@ -24,7 +23,7 @@ public class RotatingBuffer<E> {
   public final void reset() {
     this.reader.reset();
     this.writer.reset();
-    this.count = 0;
+
   }
 
   public final boolean isEmpty() {
