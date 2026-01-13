@@ -28,11 +28,11 @@ public class RotatingBuffer<E> {
   }
 
   public final boolean isEmpty() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return this.count == 0;
   }
 
   public final boolean isFull() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return this.count == this.getSize();
   }
 
   int getReaderIndex() {
