@@ -6,12 +6,12 @@ public class RotatingBuffer<E> {
   private final RotatingBufferReader<E> reader;
   private final RotatingBufferWriter<E> writer;
   private int size;
-  private int count;
+  private int index;
 
   @SuppressWarnings("unchecked")
   public RotatingBuffer(final int size) {
-    this.data = (E[]) new Object[this.getSize()];
     this.size = size;
+    this.data = (E[]) new Object[this.getSize()];
     this.reader = null;
     this.writer = null;
   }
@@ -23,15 +23,15 @@ public class RotatingBuffer<E> {
   public final void reset() {
     this.reader.reset();
     this.writer.reset();
-
+    this.index = 0;
   }
 
   public final boolean isEmpty() {
-    return this.count == 0;
+    return this.index == 0;
   }
 
   public final boolean isFull() {
-    return this.count == this.getSize();
+    return this.index == this.getSize();
   }
 
   int getReaderIndex() {

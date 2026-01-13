@@ -5,13 +5,13 @@ abstract class RotatingBufferActor<E> {
     protected int index;
 
   int getIndex() {
-    throw new UnsupportedOperationException("Not implemented yet");
+    return index;
   }
 
-  void reset(){
-
+    void reset() {
         this.index = 0;
     }
+
 }
 
 
