@@ -12,8 +12,8 @@ public class RotatingBuffer<E> {
   public RotatingBuffer(final int size) {
     this.size = size;
     this.data = (E[]) new Object[this.getSize()];
-    this.reader = null;
-    this.writer = null;
+      this.reader = new RotatingBufferReader<>(this.data);
+      this.writer = new RotatingBufferWriter<>(this.data);
   }
 
   public final int getSize() {
